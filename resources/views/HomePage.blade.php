@@ -33,6 +33,8 @@
             </div>
         </div>
     </section>
+
+
     @endsection
 </body>
-</html> 
+</html>
