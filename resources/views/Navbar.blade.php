@@ -36,7 +36,7 @@
         {{-- Button --}}
         <button onclick="">Home</button>
         <button onclick="toggleButtons()">Study Material</button>
-        <button onclick="">Forum</button>
+        <a href="/forum"><button>Forum</button></a>
 
         @auth
             <a href="/logout">Log Out</a>

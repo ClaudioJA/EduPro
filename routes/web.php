@@ -28,3 +28,8 @@ Route::get('/userlist/delete/{id}', [App\Http\Controllers\UserController::class,
 
 Route::get('/vbl', [App\Http\Controllers\VBLController::class, 'getAllVBLHeader']);    
 Route::get('/vbl/detail/{id}/{detailId}', [App\Http\Controllers\VBLController::class, 'getVBLDetail']);
+
+Route::get('/forum', [App\Http\Controllers\ForumController::class, 'getAllForum']); 
+Route::get('/forum/{id}', [App\Http\Controllers\ForumController::class, 'getForumDetail']);
+Route::post('/forum/create-forum', [App\Http\Controllers\ForumController::class, 'addForumProcess'])->name('create-forum'); 
+Route::post('/forum/create-reply', [App\Http\Controllers\ForumController::class, 'addReplyProcess'])->name('create-reply'); 
