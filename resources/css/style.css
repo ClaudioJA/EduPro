@@ -1,7 +1,21 @@
 :root {
     /* Colour */
+    --clr-gradient: linear-gradient(180deg, hsl(191, 100%, 90%) 0%, hsl(191, 100%, 90%, .75) 50%, hsl(191, 100%, 90%, .50) 100%);
+    --clr-primary: hsl(191, 100%, 90%);
+    --clr-neutral-gray: hsl(0, 0%, 62%);
+    --clr-neutral-gray-200: hsl(0, 0%, 93%);
+    --clr-neutral-white: hsl(0, 0%, 100%);
 
     /* Font family */
+    --ff-inter : 'Inter', sans-serif;
+    --ff-open-sans : 'Open Sans', sans-serif;
+    --ff-zen-kaku : 'Zen Kaku Gothic Antique', sans-serif;
+
+    /* Font Size */
+    --fs-50: 3.125rem;
+    --fs-28: 1.75rem;
+    --fs-21: 1.313rem;
+    --fs-16: 1rem;
 
     /* Font weight */
 }
@@ -43,4 +57,18 @@ h6 {
 body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    background: var(--clr-gradient);
+    font-family: var(--ff-zen-kaku);
+    font-size: var(--fs-16);    
+}
+
+.btn--details{
+    background-color: var(--clr-neutral-gray);
+    color: var(--clr-neutral-white);
+    font-family: var(--ff-open-sans);
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    padding: .5rem 1rem;
+    border-radius: 100vmax;
 }
