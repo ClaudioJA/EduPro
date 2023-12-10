@@ -33,3 +33,5 @@ Route::get('/forum', [App\Http\Controllers\ForumController::class, 'getAllForum'
 Route::get('/forum/{id}', [App\Http\Controllers\ForumController::class, 'getForumDetail']);
 Route::post('/forum/create-forum', [App\Http\Controllers\ForumController::class, 'addForumProcess'])->name('create-forum'); 
 Route::post('/forum/create-reply', [App\Http\Controllers\ForumController::class, 'addReplyProcess'])->name('create-reply'); 
+Route::get('/forum/delete/{forum}', [App\Http\Controllers\ForumController::class, 'deleteForum']);
+Route::get('/reply/delete/{forum}/{reply}', [App\Http\Controllers\ForumController::class, 'deleteReply']);

@@ -31,8 +31,8 @@
         <br><br>
 
         <?php
-            if (auth()->check()) {
-        
+        if (auth()->check()) {
+            $user = auth()->user();
         ?>
             <button onclick="toggleForm()">Answer</button><br>
             <div id="answerForm" class="hidden answerForm">
@@ -44,7 +44,7 @@
                     @endif
                     
                     @if ($creator)
-                        <input type="hidden" name="userName" value='{{ $creator->name }}'>
+                        <input type="hidden" name="userName" value='{{ $user->name }}'>
                     @endif
     
                     <label for="name">Answer : </label><br>
@@ -57,9 +57,9 @@
             <br><br>
         <?php
 
-            } else {
-                
-            }
+        } else {
+            
+        }
         ?>
 
         
@@ -67,6 +67,13 @@
         @forelse($reply as $r)
             {{ $r->userName }}<br>
             {{ $r->answer }}
+            <?php
+            if(auth()->user()->userRole == "Admin"){
+            ?>
+                <br><a href="/reply/delete/{{ $forum->id }}/{{ $r->id }}"><button>Delete</button></a>
+            <?php
+            }
+            ?>
             <br><br>    
         @empty
             <p>No reply yet</p>

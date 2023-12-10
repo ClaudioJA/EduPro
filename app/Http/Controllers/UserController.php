@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 use App\Models\User;
 
 class UserController extends Controller
@@ -20,6 +21,11 @@ class UserController extends Controller
 
     public function getUserById($id){
         $user = User::find($id);
+        return $user;
+    }
+
+    public function getCurrentUser(){
+        $user = auth()->user();
         return $user;
     }
 }

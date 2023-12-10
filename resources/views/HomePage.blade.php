@@ -21,7 +21,7 @@
         </div>
         <img class="banner__img" src="" alt="">
     </section>
-    <section class="main">
+    <section class  ="main">
         <div class="triple">
             <h1 class="triple__heading"></h1>
             <div class="triple__wrapper">

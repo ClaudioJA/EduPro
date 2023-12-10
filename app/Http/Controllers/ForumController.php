@@ -59,4 +59,27 @@ class ForumController extends Controller
 
         return redirect()->back();
     }
+
+    public function deleteForum($id){
+        $forum = Forum::find($id);
+        $replies = Reply::where('forumId', $id)->get();
+
+        if($forum){
+            foreach($replies as $r){
+                $r->delete();
+            }
+            $forum->delete();
+        }
+
+        return redirect()->back();
+    }
+
+    public function deleteReply($forum, $reply){
+        $target = Reply::where('forumId', $forum)->where('id', $reply)->first();
+        if($target){
+            $target->delete();
+        }
+
+        return redirect()->back();
+    }
 }

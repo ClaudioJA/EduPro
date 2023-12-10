@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Forum</title>
     <style>
-        .forum-item{
+        .forum{
             border: 1px solid black;
         }
 
@@ -23,7 +23,7 @@
 
         <?php
             if (auth()->check()) {
-        
+                
         ?>
         
         <button onclick="toggleForm()">Add New Forum</button><br>
@@ -78,12 +78,15 @@
 
         
         @forelse($forum as $f)
-            <a href="/forum/{{ $f->id }}">
-                <div class="forum-item">
-                    {{ $f->subject }}<br>
-                    {{ $f->question }}
-                </div>
-            </a>
+            <div class="forum">
+                <a href="/forum/{{ $f->id }}">
+                    <div class="forum-item">
+                        {{ $f->subject }}<br>
+                        {{ $f->question }}
+                    </div>
+                </a>
+                <a href="/forum/delete/{{ $f->id }}"><button>Delete Forum</button></a>
+            </div>
             <br><br>    
         @empty
             <p>There are no Forum at the moments</p>
