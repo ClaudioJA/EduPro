@@ -35,6 +35,14 @@
         @empty
             <p>There are no other Chapters at the moments</p>
         @endforelse
+
+        <?php
+            if (auth()->user()->userRole == "Admin") {
+        ?>
+            <a href="/vbldetail/create/{{ $headerId }}"><button>Add Chapter</button></a>
+        <?php
+            }
+        ?>
     @endsection
 </body>
 </html>

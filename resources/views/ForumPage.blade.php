@@ -56,12 +56,8 @@
             </div>
             <br><br>
         <?php
-
-        } else {
-            
         }
         ?>
-
         
         <p>Answer :</p>
         @forelse($reply as $r)

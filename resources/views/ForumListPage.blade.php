@@ -85,7 +85,13 @@
                         {{ $f->question }}
                     </div>
                 </a>
-                <a href="/forum/delete/{{ $f->id }}"><button>Delete Forum</button></a>
+                <?php
+                    if (auth()->user()->userRole == "Admin") {
+                ?>
+                    <a href="/forum/delete/{{ $f->id }}"><button>Delete Forum</button></a>
+                <?php
+                    }
+                ?>
             </div>
             <br><br>    
         @empty

@@ -5,29 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>VBL</title>
+    <style>
+        .list-item{
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
     @extends('Navbar')
     @section('content')
-        <h1>VBL List</h1>
+        <h1>VBL Detail</h1>
 
+        <p>There are no Chapter yet</p><br>
+        
         <?php
             if (auth()->user()->userRole == "Admin") {
         ?>
-            <a href="/vbl/create"><button>Add Course</button></a><br><br>
+            <a href="/vbl/detail/create/{{ $headerId }}"><button>Add Chapter</button></a>
         <?php
             }
         ?>
-        
-
-        @forelse($vbl as $v)
-            {{ $v->name }} <br>
-            by {{ $v->teacherName }}<br>
-            <a href="/vbl/detail/{{ $v->id }}/1"><button>Detail</button></a>
-            <br><br>    
-        @empty
-            <p>There are no VBL at the moments</p>
-        @endforelse
     @endsection
 </body>
 </html>
