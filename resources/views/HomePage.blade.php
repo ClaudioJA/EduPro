@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Homepage</title>
+    <link rel="shortcut icon" href="/images/edupro_logo.png" type="image/x-icon">
+    <title>EduPro | Homepage</title>
     @vite(['resources/css/style.css', "resources/css/homepage.css"])
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +22,7 @@
         <div class="banner__wrapper">
             <h1>Educational Online Courses</h1>
             <p>Let's start with a free class!</p>
-            <a href="" class="btn--details">Join Our Class</a>
+            <a href="/vbl" class="btn--details">Join Our Class</a>
         </div>
         <img class="banner__img" src="images/girl_studying_online.png" alt="Girl Studying Image">
     </section>
@@ -33,7 +34,7 @@
                     <img src="images/video_based_learning.png" alt="">
                     <h3>Video Based Learning</h3>
                     <p>A remote training method that relies on live or prerecorded video to teach new skills and knowledge</p>
-                    <a href="" class="btn--details">More Details</a>
+                    <a href="/vbl" class="btn--details">More Details</a>
                 </div>
                 <div class="triple__content">
                     <img src="images/live_teaching_session.png" alt="">
