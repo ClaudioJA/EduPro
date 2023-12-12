@@ -46,3 +46,10 @@ Route::post('/forum/create-reply', [App\Http\Controllers\ForumController::class,
 
 Route::get('/forum/delete/{forum}', [App\Http\Controllers\ForumController::class, 'deleteForum']);
 Route::get('/reply/delete/{forum}/{reply}', [App\Http\Controllers\ForumController::class, 'deleteReply']);
+
+// Live Teaching Class
+Route::get('/ltc', [App\Http\Controllers\LTCController::class, 'getLiveTeachingClass']);
+
+// Exercise
+Route::get('/exercise/{subject?}', [App\Http\Controllers\ExerciseController::class, 'getAllExercise']);
+Route::get('/exercise/question/{id}', [App\Http\Controllers\ExerciseController::class, 'getQuestion']);
