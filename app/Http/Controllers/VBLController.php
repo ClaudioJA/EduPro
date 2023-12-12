@@ -25,7 +25,7 @@ class VBLController extends Controller
             return view('VBLDetailPage', ['curr' => $curr, 'list' => $list, 'headerId' => $id]);
         }
         else{
-            if($list){
+            if($list->isNotEmpty()){
                 $top = Vbldetail::where('headerId', $id)->orderBy('chapter', 'asc')->first();
                 return view('VBLDetailPage', ['curr' => $top, 'list' => $list, 'headerId' => $id]);
             }
@@ -67,13 +67,13 @@ class VBLController extends Controller
         ]);
 
         $new = new Vbldetail();
-        $new->headerId = $validation['headerId'];
+        $new->headerId = $validation['headerId'];   
         $new->title = $validation['title'];
         $new->chapter = $validation['chapter'];
         $new->videoUrl = $validation['videoUrl'];
         $new->desc = $validation['desc'];
         $new->save();
 
-        return redirect('/vbl/detail/{{ $new->headerId }}/1');
-    }
+        return redirect("/vbl");
+    }   
 }

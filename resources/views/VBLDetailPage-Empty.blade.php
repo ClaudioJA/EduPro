@@ -19,10 +19,12 @@
         <p>There are no Chapter yet</p><br>
         
         <?php
-            if (auth()->user()->userRole == "Admin") {
+            if (auth()->check()){
+                if (auth()->user()->userRole == "Admin") {
         ?>
-            <a href="/vbl/detail/create/{{ $headerId }}"><button>Add Chapter</button></a>
+            <a href="/vbldetail/create/{{ $headerId }}"><button>Add Chapter</button></a>
         <?php
+                }
             }
         ?>
     @endsection

@@ -22,6 +22,7 @@
         <div class="banner__wrapper">
             <h1>Educational Online Courses</h1>
             <p>Let's start with a free class!</p>
+            <a href="/logout">Log Out</a>
             <a href="/vbl" class="btn--details">Join Our Class</a>
         </div>
         <img class="banner__img" src="images/girl_studying_online.png" alt="Girl Studying Image">

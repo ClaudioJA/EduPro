@@ -37,10 +37,12 @@
         @endforelse
 
         <?php
-            if (auth()->user()->userRole == "Admin") {
+            if (auth()->check()){
+                if (auth()->user()->userRole == "Admin") {
         ?>
             <a href="/vbldetail/create/{{ $headerId }}"><button>Add Chapter</button></a>
         <?php
+                }
             }
         ?>
     @endsection

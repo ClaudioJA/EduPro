@@ -12,10 +12,12 @@
         <h1>VBL List</h1>
 
         <?php
-            if (auth()->user()->userRole == "Admin") {
+            if (auth()->check()){
+                if (auth()->user()->userRole == "Admin") {
         ?>
             <a href="/vbl/create"><button>Add Course</button></a><br><br>
         <?php
+                }
             }
         ?>
         
