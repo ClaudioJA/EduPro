@@ -20,8 +20,8 @@
                             <img src="/images/dropdown_arrow.png" alt="">
                         </div>
                         <ul class="nav__dropdown" data-hidden="true">
-                            <li><a href="">Live Teaching</a></li>
-                            <li><a href="">Private Tutor</a></li>
+                            <li><a href="/ltc">Live Teaching</a></li>
+                            <li><a href="/exercise">Private Tutor</a></li>
                             <li><a href="/vbl">Video Based Learning</a></li>
                         </ul>
                     </li>

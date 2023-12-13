@@ -85,7 +85,7 @@
                         if (auth()->check()){
                             if (auth()->user()->userRole == "Admin") {
                     ?>
-                        <a href="/forum/delete/{{ $f->id }}"><button>Delete Forum</button></a>
+                        <a class="btn" href="/forum/delete/{{ $f->id }}">Delete Forum</a>
                     <?php
                             }
                         }

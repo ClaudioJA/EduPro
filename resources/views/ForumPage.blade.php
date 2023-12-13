@@ -56,7 +56,7 @@
                             <?php
                             if(auth()->user()->userRole == "Admin"){
                             ?>
-                                <a href="/reply/delete/{{ $forum->id }}/{{ $r->id }}" class="btn">Delete</a>
+                                <a href="/reply/delete/{{ $forum->id }}/{{ $r->id }}" class="btn btn__small">Delete</a>
                             <?php
                             }
                             ?>

@@ -68,11 +68,14 @@ body {
 }
 
 .btn{
+    display: block;
     background-color: var(--clr-neutral-gray-400);
     border: 1px solid hsl(0, 0%, 0%, .2);
     color: var(--clr-neutral-black);
+    text-align: center;
     font-family: var(--ff-open-sans);
     font-weight: 500;
+    text-decoration: none;
     font-size: var(--fs-21);
     padding: .5rem 1rem;
     border-radius: 1rem;

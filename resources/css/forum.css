@@ -67,6 +67,14 @@
     border: 1px solid var(--clr-accent);
     margin-block: 3rem 0;
 }
+.content__container{
+    display: grid;
+    place-items: center;
+}
+.question__wrapper{
+    display: grid;
+    justify-items: start;
+}
 .content__container,
 .question__wrapper{
     border: solid var(--clr-accent);
