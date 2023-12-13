@@ -51,6 +51,13 @@ Route::get('/reply/delete/{forum}/{reply}', [App\Http\Controllers\ForumControlle
 Route::get('/ltc', [App\Http\Controllers\LTCController::class, 'getLiveTeachingClass']);
 
 // Exercise
-Route::get('/exercise/{subject?}', [App\Http\Controllers\ExerciseController::class, 'getAllExercise']);
 Route::get('/exercise/question/{id}', [App\Http\Controllers\ExerciseController::class, 'getQuestion']);
 Route::post('/exercise/question/checkAnswer', [App\Http\Controllers\ExerciseController::class, 'checkAnswer'])->name('check-answer');
+
+Route::get('/exercise/create', [App\Http\Controllers\ExerciseController::class, 'createExercise']);
+Route::post('/exercise/create-process', [App\Http\Controllers\ExerciseController::class, 'createExerciseProcess'])->name('create-exercise');
+
+Route::get('/exercise/question/create/{id}', [App\Http\Controllers\ExerciseController::class, 'addQuestion']);
+Route::post('/exercise/question/create-process', [App\Http\Controllers\ExerciseController::class, 'addQuestionProcess'])->name('create-question');
+
+Route::get('/exercise/{subject?}', [App\Http\Controllers\ExerciseController::class, 'getAllExercise']);

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('exerciseheaders', function (Blueprint $table) {
             $table->id();
             $table->string('subject');
-            $table->string('grade');
+            $table->string('title');
             $table->timestamps();
         });
     }
