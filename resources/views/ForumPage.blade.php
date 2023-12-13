@@ -53,6 +53,10 @@
     
                     <button>Add Answer</button>
                 </form>
+
+                @foreach($errors->all() as $err)
+                    {{ $err }} <br>
+                @endforeach
             </div>
             <br><br>
         <?php

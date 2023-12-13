@@ -73,6 +73,11 @@
 
                 <button class="btn">Add Forum</button>
             </form>
+
+            @foreach($errors->all() as $err)
+                {{ $err }} <br>
+            @endforeach
+            
             <?php
 
                 } else {
