@@ -4,84 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>Forum</title>
-    <style>
-        .forum-item{
-            border: 1px solid black;
-        }
+    @vite(['resources/css/style.css',"resources/css/forum.css", "resources/js/animation.js"])
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&family=Zen+Kaku+Gothic+Antique:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
-        .hidden {
-            display: none;
-        }
-
-        .answerForm{
-            border: 1px solid black;
-            padding: 2%;
-        }
-    </style>
 </head>
 <body>
     @extends('Navbar')
     @section('content')
-        <h1>Forum</h1>
-
-        {{ $forum->subject }}<br>
-        {{ $forum->grade }} - {{ $creator->name }}<br>
-        {{ $forum->question }}
-        <br><br>
-
-        <?php
-        if (auth()->check()) {
-            $user = auth()->user();
-        ?>
-            <button onclick="toggleForm()">Answer</button><br>
-            <div id="answerForm" class="hidden answerForm">
-                <form action="{{ route('create-reply') }}" method="POST">
-                    <input type="hidden" name="_token" value='{{ csrf_token() }}'>
-    
-                    @if ($forum)
-                        <input type="hidden" name="forumId" value='{{ $forum->id }}'>
-                    @endif
-                    
-                    @if ($creator)
-                        <input type="hidden" name="userName" value='{{ $user->name }}'>
-                    @endif
-    
-                    <label for="name">Answer : </label><br>
-                    <textarea type="text" name="answer" id="answer"></textarea>
-                    <br><br>
-    
-                    <button>Add Answer</button>
-                </form>
+        <section class="forum-detail">
+            <div class="question">
+                <div class="question__wrapper">
+                    <h1>Question: </h1>
+                    <p>{{ $forum->subject }}, {{ $forum->grade }} - {{ $creator->name }}</p>
+                    <p class="question__detail">{{ $forum->question }}</p>
+                    <button class="btn btn__small" id="btn-answer">Answer</button>
+                </div>
+                <?php
+                if (auth()->check()) {
+                    $user = auth()->user();
+                ?>
+                    <form class="question__create question__wrapper" data-hidden="true" action="{{ route('create-reply') }}" method="POST">
+                        <input type="hidden" name="_token" value='{{ csrf_token() }}'>
+                        @if ($forum)
+                            <input type="hidden" name="forumId" value='{{ $forum->id }}'>
+                        @endif
+                        @if ($creator)
+                            <input type="hidden" name="userName" value='{{ $user->name }}'>
+                        @endif
+                        <label for="name">Answer : </label>
+                        <textarea type="text" name="answer" id="answer"></textarea>
+                        <button class="btn btn__small">Add Answer</button>
+                    </form>
+                <?php
+                }
+                ?>
+                
+                <div class="question__wrapper">
+                    <h2>Answer :</h2>
+                    @forelse($reply as $r)
+                        <div class="answer">
+                            <h3>{{ $r->userName }}</h3>
+                            <p>{{ $r->answer }}</p>
+                            <?php
+                            if(auth()->user()->userRole == "Admin"){
+                            ?>
+                                <a href="/reply/delete/{{ $forum->id }}/{{ $r->id }}" class="btn">Delete</a>
+                            <?php
+                            }
+                            ?>
+                        </div>
+                    @empty
+                        <p>No reply yet</p>
+                    @endforelse
+                </div>
             </div>
-            <br><br>
-        <?php
-        }
-        ?>
-        
-        <p>Answer :</p>
-        @forelse($reply as $r)
-            {{ $r->userName }}<br>
-            {{ $r->answer }}
-            <?php
-            if(auth()->user()->userRole == "Admin"){
-            ?>
-                <br><a href="/reply/delete/{{ $forum->id }}/{{ $r->id }}"><button>Delete</button></a>
-            <?php
-            }
-            ?>
-            <br><br>    
-        @empty
-            <p>No reply yet</p>
-        @endforelse
-        
+        </section>
     @endsection
-
-    <script>
-        function toggleForm() {
-            var answerForm = document.getElementById('answerForm');
-            answerForm.style.display = (answerForm.style.display === 'none') ? 'inline-block' : 'none';
-        }
-    </script>
 </body>
 </html>

@@ -1,12 +1,28 @@
 const dropdown = document.querySelector(".nav__dropdown");
 const link = document.querySelector(".nav__dropdown--link");
+const forum = document.querySelector(".form--forum");
+const askBtn = document.querySelector(".forum--askbtn");
+const answerBtn = document.querySelector("#btn-answer");
+const questionForm = document.querySelector(".question__create");
 
-link.addEventListener("click", () => {
-    let checkHidden = dropdown.getAttribute("data-hidden");
-    if(checkHidden == "true"){
-        dropdown.setAttribute("data-hidden", "false")
+const hiddenSwitch = (trigger, element) => {
+    if(trigger == null | element == null){
+        return
     }
-    else{
-        dropdown.setAttribute("data-hidden", "true");
-    }
-})
+    trigger.addEventListener("click", () => {
+        console.log(trigger)
+        console.log(element)
+        let checkHidden = element.getAttribute("data-hidden");
+        if(checkHidden == "true"){
+            element.setAttribute("data-hidden", "false")
+        }
+        else{
+            element.setAttribute("data-hidden", "true");
+        }
+    })
+
+}
+
+hiddenSwitch(link, dropdown);
+hiddenSwitch(askBtn, forum);
+hiddenSwitch(answerBtn, questionForm);
