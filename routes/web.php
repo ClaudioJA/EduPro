@@ -53,3 +53,4 @@ Route::get('/ltc', [App\Http\Controllers\LTCController::class, 'getLiveTeachingC
 // Exercise
 Route::get('/exercise/{subject?}', [App\Http\Controllers\ExerciseController::class, 'getAllExercise']);
 Route::get('/exercise/question/{id}', [App\Http\Controllers\ExerciseController::class, 'getQuestion']);
+Route::post('/exercise/question/checkAnswer', [App\Http\Controllers\ExerciseController::class, 'checkAnswer'])->name('check-answer');

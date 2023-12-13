@@ -27,4 +27,28 @@ class ExerciseController extends Controller
 
         return view('QuestionListPage', ['exercise' => $exercise, 'question' => $question]);
     }
+
+    public function checkAnswer(Request $request){
+        $answers = $request->except('_token');
+        $questionId = $request->questionId;
+        $question = Exercisequestion::where('exerciseId', $questionId)->get();
+
+        // dd($question[0]->correctOption);    
+
+        $total = 0;
+        $correct = 0;
+
+        foreach($question as $q){
+            $userAnswer = $answers;
+            $correctAnswer = $q->correctOption;
+
+            if ($userAnswer !== null && $userAnswer === $correctAnswer) {
+                $correct++;
+            }
+
+            $total++;
+        }
+
+        return ($correct / $total) * 100;
+    }
 }
