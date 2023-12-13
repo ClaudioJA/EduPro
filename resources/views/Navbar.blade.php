@@ -17,7 +17,7 @@
                     <li class="nav__dropdown--bar">
                         <div class="nav__dropdown--link">
                             <a>Study Materials</a>
-                            <img src="images/dropdown_arrow.png" alt="">
+                            <img src="/images/dropdown_arrow.png" alt="">
                         </div>
                         <ul class="nav__dropdown" data-hidden="true">
                             <li><a href="">Live Teaching</a></li>
@@ -29,8 +29,9 @@
                 </ul>
                 <div class="nav__profile">
                     @auth
-                        <img class="nav__profile--img" src="images/profile_icon.png" alt="Profile">
+                        <img class="nav__profile--img" src="/images/profile_icon.png" alt="Profile">
                         <p>{{$user->name}}</p>
+                        <a href="/logout" class="btn--logout">Log Out</a>
                     @else
                         <a href="{{route('login')}}" class="btn--nav">Login</a>
                         <a href="{{route('register')}}" class="btn--nav">Register</a>

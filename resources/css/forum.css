@@ -1,0 +1,113 @@
+.cta{
+    display: grid;
+    gap: 1rem;
+    justify-content: center;
+    place-items: center;
+    background-color: var(--clr-neutral-white);
+    max-width: 1000px;
+    margin: 3rem auto 1rem;
+    padding: 3rem;
+    border-radius: 1rem 1rem 0 0;
+    font-size: var(--fs-21);
+}
+
+.cta > h1{
+    font-size: var(--fs-28);
+    font-weight: 500;
+}
+
+.forum{
+    font-size: var(--fs-21);
+}
+.forum,
+.forum-detail{
+    max-width: 1000px;
+    background-color: var(--clr-neutral-white);
+    padding: 3rem;
+}
+.forum{
+    text-align: center;
+    border-radius: 0 0 1rem 1rem;
+    margin: 0rem auto 3rem;
+}
+.forum-detail{
+    margin: 3rem auto;
+    border-radius: 1rem;
+}
+
+.form{
+    display: grid;
+    gap: 1rem;
+    place-items: center;
+}
+
+.form__wrapper{
+    background-color: var(--clr-neutral-gray-200);
+    border-radius: 1rem;
+    padding: .25rem 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.20);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);   
+    font-weight: 500;
+}
+.form__wrapper > select{
+    border: none;
+    background: transparent;
+}
+
+.form__wrapper > textarea{
+    margin-block: 1rem;
+    border: none;
+}
+
+.question,
+.content{
+    display: grid;
+    background-color: var(--clr-primary);
+    border-radius: 1rem;
+    border: 1px solid var(--clr-accent);
+    margin-block: 3rem 0;
+}
+.content__container,
+.question__wrapper{
+    border: solid var(--clr-accent);
+    border-width: 1px 0 0 0;
+    padding: 1rem;
+}
+.question__wrapper:first-child,
+.content__container:first-child{
+    border-width: 0;
+}
+
+.question__wrapper h1,
+.question__wrapper h2,
+.question__wrapper h3{
+    font-weight: 600;
+}
+.question__wrapper h1{
+    font-size: var(--fs-28);
+}
+.question__detail{
+    margin-block: 1rem;
+}
+
+.content__link{
+    text-decoration: none;
+    color: var(--clr-neutral-black);
+}
+.content__link > h3{
+    font-weight: 600;
+}
+.question__create{
+    display: grid;
+    gap: 1rem;
+    justify-items: start;
+}
+
+.form--forum[data-hidden="true"],
+.question__create[data-hidden="true"]{
+    display: none;
+}
+
+.answer{
+    margin-bottom: 1rem;
+}

@@ -4,8 +4,11 @@
     --clr-primary: hsl(191, 100%, 90%);
     --clr-accent: hsl(191, 100%, 50%);
     --clr-neutral-gray: hsl(0, 0%, 62%);
+    --clr-neutral-gray-100: hsl(0, 0%, 97%);
     --clr-neutral-gray-200: hsl(0, 0%, 93%);
+    --clr-neutral-gray-400: hsl(0, 0%, 73%);
     --clr-neutral-white: hsl(0, 0%, 100%);
+    --clr-neutral-black: hsl(0, 0%, 0%);
 
     /* Font family */
     --ff-inter : 'Inter', sans-serif;
@@ -61,6 +64,25 @@ body {
     background: var(--clr-gradient);
     font-family: var(--ff-zen-kaku);
     font-size: var(--fs-16);    
+    color: var(--clr-neutral-black);
+}
+
+.btn{
+    background-color: var(--clr-neutral-gray-400);
+    border: 1px solid hsl(0, 0%, 0%, .2);
+    color: var(--clr-neutral-black);
+    font-family: var(--ff-open-sans);
+    font-weight: 500;
+    font-size: var(--fs-21);
+    padding: .5rem 1rem;
+    border-radius: 1rem;
+    transition: 
+        background-color 300ms ease,
+        border-color 300ms ease;
+}
+.btn:hover{
+    background-color: var(--clr-neutral-gray-200);
+    border-color: var(--clr-neutral-black);
 }
 
 .btn--details{
@@ -73,12 +95,14 @@ body {
     padding: .5rem 1rem;
     border-radius: 100vmax;
     transition: background-color 300ms ease;
+    border: none;
 }
 .btn--details:hover{
     background-color: var(--clr-accent);
 }
 
-.btn--nav{
+.btn--nav,
+.btn--logout{
     font-size: var(--fs-21);
     font-family: var(--ff-open-sans);
     font-weight: 600;
@@ -86,8 +110,16 @@ body {
     color: inherit;
     transition: color 300ms ease;    
 }
-.btn--nav:hover{
+.btn--logout{
+    color: var(--clr-neutral-gray);
+}
+.btn--nav:hover,
+.btn--logout:hover{
     color: var(--clr-accent);
+}
+
+.btn__small{
+    font-size: var(--fs-16);
 }
 
 .logo{
@@ -140,7 +172,6 @@ body {
 }
 .nav__dropdown--link{
     display: flex;
-    gap: 1rem;
 }
 .nav__dropdown--link >img{
     object-fit: contain;

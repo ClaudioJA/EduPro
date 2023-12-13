@@ -1,0 +1,36 @@
+.account{
+    background-color: var(--clr-neutral-white);
+    margin: 2rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    text-align: center;
+    display: grid;
+    justify-content: center;
+    gap: 2rem;
+    margin-inline: auto;
+    max-width: 600px;
+    
+}
+
+.account__wrapper > h1,
+.account__wrapper > p{
+    font-size: var(--fs-21);
+    font-weight: 600;
+}
+.account__wrapper > h1{
+    font-size: var(--fs-28);
+}
+
+.account__wrapper > *{
+    width: 100%;
+}
+.account__wrapper--checkbox > *{
+    width: auto;
+}
+
+.account__wrapper > input{
+    padding: .5rem 1rem;
+    background-color: var(--clr-neutral-gray-100);
+    border: 2px solid var(--clr-neutral-gray-200);
+    border-radius: .5rem;
+}

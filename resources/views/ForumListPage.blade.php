@@ -5,21 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Forum</title>
-    @vite(['resources/css/style.css',"resources/css/forum.css"])
+    @vite(['resources/css/style.css',"resources/css/forum.css", "resources/js/animation.js"])
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&family=Zen+Kaku+Gothic+Antique:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 
-    <style>
-        .forum{
-            border: 1px solid black;
-        }
-
-        .createForum{
-            border: 1px solid black;
-            padding: 2%;
-        }
-    </style>
 </head>
 <body>
     @extends('Navbar')
@@ -27,13 +17,13 @@
         <section class="cta">
             <h1>FORUM</h1>
             <p>Help with your learning obstacles with the Discussion Forum</p>
-            <button class="btn">Ask Questions</button>
+            <button class="btn forum--askbtn">Ask Questions</button>
         </section>    
         <section class="forum">
             <?php
                 if (auth()->check()) {      
             ?>
-            <form action="{{ route('create-forum') }}" method="POST">
+            <form class="form form--forum" data-hidden="true" action="{{ route('create-forum') }}" method="POST">
                 <input type="hidden" name="_token" value='{{ csrf_token() }}'>  
 
                 @if ($user)
@@ -84,14 +74,12 @@
                     
                 }
             ?>
-
+            <div class="content">
             @forelse($forum as $f)
-                <div class="forum">
-                    <a href="/forum/{{ $f->id }}">
-                        <div class="forum-item">
-                            {{ $f->subject }}<br>
-                            {{ $f->question }}
-                        </div>
+                <div class="content__container">
+                    <a class="content__link" href="/forum/{{$f->id}}">
+                        <h3>{{ $f->subject }}</h3>
+                        <p>{{ $f->question }}</p>
                     </a>
                     <?php
                         if (auth()->check()){
@@ -102,12 +90,13 @@
                             }
                         }
                     ?>
-                </div>
-                <br><br>    
+                </div> 
             @empty
                 <p>There are no Forum at the moments</p>
             @endforelse
+            </div>
         </section>
+        
     @endsection
 </body>
 </html>
