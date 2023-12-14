@@ -30,8 +30,18 @@
                 <input type="radio" name="{{ $loop->iteration }}" id="optionC" value="optionC">{{ $q->optionC }}<br>
             </label>
             <label for="">
-                <input type="radio" name="{{ $loop->iteration }}" id="optionD" value="optionD">{{ $q->optionD }}<br><br>
+                <input type="radio" name="{{ $loop->iteration }}" id="optionD" value="optionD">{{ $q->optionD }}<br>
             </label>
+
+            <?php
+                if (auth()->check()){
+                    if (auth()->user()->userRole == "Admin") {
+            ?>
+                <br><a href="/exercise/question/delete/{{ $exercise->id }}/{{ $q->id }}">Delete Question</a><br><br>
+            <?php
+                    }
+                }
+            ?>
         @empty
             <p>There are no Question</p>
         @endforelse

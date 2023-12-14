@@ -66,14 +66,40 @@ class VBLController extends Controller
             'desc' => 'required | min:5'
         ]);
 
-        $new = new Vbldetail();
-        $new->headerId = $validation['headerId'];   
-        $new->title = $validation['title'];
-        $new->chapter = $validation['chapter'];
-        $new->videoUrl = $validation['videoUrl'];
-        $new->desc = $validation['desc'];
-        $new->save();
+        $check = Vbldetail::where('chapter', $validation['chapter'])->where('headerId', $validation['headerId'])->get();
+
+        if($check->isEmpty()){
+            $new = new Vbldetail();
+            $new->headerId = $validation['headerId'];   
+            $new->title = $validation['title'];
+            $new->chapter = $validation['chapter'];
+            $new->videoUrl = $validation['videoUrl'];
+            $new->desc = $validation['desc'];
+            $new->save();
+        }
 
         return redirect("/vbl");
-    }   
+    }
+
+    public function deleteVBL($id){
+        $target = Vblheader::find($id);
+        $list = Vbldetail::where('headerId', $id)->get();
+
+        if($target){
+            foreach($list as $l){
+                $l->delete();
+            }
+    
+            $target->delete();
+        }
+
+        return redirect()->back();
+    }
+
+    public function deleteVBLDetail($vbl, $id){
+        $target = Vbldetail::where('id', $id)->where('headerId', $vbl)->first();
+        $target->delete();
+
+        return redirect()->back();
+    }
 }

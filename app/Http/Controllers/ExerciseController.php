@@ -103,4 +103,25 @@ class ExerciseController extends Controller
 
         return view('ExerciseScore', ['score' => $score]);
     }
+
+    public function deleteExercise($id){
+        $exercise = Exerciseheader::find($id);
+        $question = Exercisequestion::where('exerciseId', $id)->get();
+
+        if($exercise){
+            foreach($question as $q){
+                $q->delete();
+            }
+    
+            $exercise->delete();
+        }
+        
+        return redirect()->back();
+    }
+
+    public function deleteQuestion($exerciseId, $id){
+        $question = Exercisequestion::where('exerciseId', $exerciseId)->where('id', $id)->first();
+        $question->delete();
+        return redirect()->back();
+    }
 }

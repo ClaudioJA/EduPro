@@ -37,6 +37,9 @@ Route::post('/vbl/create-course', [App\Http\Controllers\VBLController::class, 'c
 Route::get('/vbldetail/create/{id}', [App\Http\Controllers\VBLController::class, 'createVBLDetailForm']);
 Route::post('/vbldetail/create-chapter', [App\Http\Controllers\VBLController::class, 'createVBLDetailProcess'])->name('create-chapter');
 
+Route::get('/vbl/delete/{id}', [App\Http\Controllers\VBLController::class, 'deleteVBL']);
+Route::get('/vbldetail/delete/{vbl}/{id}', [App\Http\Controllers\VBLController::class, 'deleteVBLDetail']);
+
 // Forum
 Route::get('/forum', [App\Http\Controllers\ForumController::class, 'getAllForum']); 
 Route::get('/forum/{id}', [App\Http\Controllers\ForumController::class, 'getForumDetail']);
@@ -59,5 +62,8 @@ Route::post('/exercise/create-process', [App\Http\Controllers\ExerciseController
 
 Route::get('/exercise/question/create/{id}', [App\Http\Controllers\ExerciseController::class, 'addQuestion']);
 Route::post('/exercise/question/create-process', [App\Http\Controllers\ExerciseController::class, 'addQuestionProcess'])->name('create-question');
+
+Route::get('/exercise/delete/{id}', [App\Http\Controllers\ExerciseController::class, 'deleteExercise']);
+Route::get('/exercise/question/delete/{exerciseId}/{id}', [App\Http\Controllers\ExerciseController::class, 'deleteQuestion']);
 
 Route::get('/exercise/{subject?}', [App\Http\Controllers\ExerciseController::class, 'getAllExercise']);

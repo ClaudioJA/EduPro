@@ -39,6 +39,17 @@
                         <h3>{{ $v->name }} </h3>
                         <p>by {{ $v->teacherName }}</p>
                         <a class="btn--details" href="/vbl/detail/{{ $v->id }}/1">Detail</a>
+                        
+                        <?php
+                            if (auth()->check()){
+                                if (auth()->user()->userRole == "Admin") {
+                        ?>
+                            <a href="/vbl/delete/{{ $v->id }}" class="btn btn__small">Delete</a>
+                        <?php
+                                }
+                            }
+                        ?>
+
                     </div>
                 @empty
                     <p>There are no VBL at the moments</p>

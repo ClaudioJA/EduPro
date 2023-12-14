@@ -28,6 +28,7 @@
                             if (auth()->user()->userRole == "Admin") {
                     ?>
                         <a href="/vbldetail/create/{{ $headerId }}" class="btn btn__small">Add Chapter</a>
+                        <a href="/vbldetail/delete/{{ $headerId }}/{{ $curr->id }}" class="btn btn__small">Delete Chapter</a>
                     <?php
                             }
                         }

@@ -41,6 +41,17 @@
         @forelse ($exercise as $e)
             {{ $e->subject }} - {{ $e->title }}<br>
             <a href="/exercise/question/{{ $e->id }}"><button>Try</button></a>
+
+            <?php
+                if (auth()->check()){
+                    if (auth()->user()->userRole == "Admin") {
+            ?>
+                <br><a href="/exercise/delete/{{ $e->id }}"><button>Delete Course</button></a>
+            <?php
+                    }
+                }
+            ?>
+
             <br><br>
         @empty  
             <p>There are no Exercise available currently</p>
