@@ -10,8 +10,6 @@ const hiddenSwitch = (trigger, element) => {
         return
     }
     trigger.addEventListener("click", () => {
-        console.log(trigger)
-        console.log(element)
         let checkHidden = element.getAttribute("data-hidden");
         if(checkHidden == "true"){
             element.setAttribute("data-hidden", "false")
@@ -26,3 +24,16 @@ const hiddenSwitch = (trigger, element) => {
 hiddenSwitch(link, dropdown);
 hiddenSwitch(askBtn, forum);
 hiddenSwitch(answerBtn, questionForm);
+
+const hamburger = document.querySelector(".hamburger");
+const navList = document.querySelector(".nav__list");
+
+hamburger.addEventListener("click", () => {
+    let checkHidden = navList.getAttribute("data-hidden");
+    if(checkHidden == "true"){
+        navList.setAttribute("data-hidden", "false")
+    }
+    else{
+        navList.setAttribute("data-hidden", "true");
+    }
+})

@@ -5,61 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Exercise</title>
+
+    @vite(['resources/css/style.css',"resources/css/learning.css", "resources/js/animation.js"])
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&family=Zen+Kaku+Gothic+Antique:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
 </head>
 <body>
     @extends('Navbar')
     @section('content')
         
-    <h1>Add Question</h1>
+    <form class="teach-form" action="{{ route('create-question') }}" method="POST">
+        <h1>Add Question</h1>
+        <input type="hidden" name="_token" value='{{ csrf_token() }}'>
+        <input type="hidden" name="exerciseId" value='{{ $id }}'>
 
-    <div id="createForm" class="createForm">
-        <form action="{{ route('create-question') }}" method="POST">
-            <input type="hidden" name="_token" value='{{ csrf_token() }}'>
 
-            <input type="hidden" name="exerciseId" value='{{ $id }}'>
-
-            <label for="name">Question : </label><br>
+        <div class="teach-form__wrapper">
+            <label for="name">Question : </label>
             <textarea type="text" name="question" id="question"></textarea>
-            <br><br>
+        </div>
 
-            <label for="name">Option A : </label><br>
-            <input type="text" name="optionA" id="optionA"> 
-            <br><br>
+        <div class="teach-form__wrapper">
+            <label for="name">Option A : </label>
+            <input type="text" name="optionA" id="optionA">
+        </div>
 
-            <label for="name">Option B : </label><br>
-            <input type="text" name="optionB" id="optionB"> 
-            <br><br>
+        <div class="teach-form__wrapper">
+            <label for="name">Option B : </label>
+            <input type="text" name="optionB" id="optionB">
+        </div>
 
-            <label for="name">Option C : </label><br>
-            <input type="text" name="optionC" id="optionC"> 
-            <br><br>
+        <div class="teach-form__wrapper">
+            <label for="name">Option C : </label>
+            <input type="text" name="optionC" id="optionC">
+        </div>
 
-            <label for="name">Option D : </label><br>
-            <input type="text" name="optionD" id="optionD"> 
-            <br><br>
+        <div class="teach-form__wrapper">
+            <label for="name">Option D : </label>
+            <input type="text" name="optionD" id="optionD">
+        </div>
 
-            <label for="name">Correct Answer : </label><br>
-            <label for="option1">
-                <input type="radio" id="optionA" name="correctOption" value="optionA"> Option A<br>
-            </label>
-            <label for="option1">
-                <input type="radio" id="optionB" name="correctOption" value="optionB"> Option B<br>
-            </label>
-            <label for="option1">
-                <input type="radio" id="optionC" name="correctOption" value="optionC"> Option C<br>
-            </label>
-            <label for="option1">
-                <input type="radio" id="optionD" name="correctOption" value="optionD"> Option D<br><br>
-            </label>
-            
-            <button>Create</button>
-        </form>
-        <br>
-
-        @foreach($errors->all() as $err)
-            {{ $err }} <br>
-        @endforeach
-    </div>
+        <div class="teach-form__wrapper">
+            <label for="name">Correct Answer : </label>
+            <div class="teach-form__radio">
+                <input type="radio" id="optionA" name="correctOption" value="optionA">
+                <label for="optionA">Option A</label>
+            </div>
+            <div class="teach-form__radio">
+                <input type="radio" id="optionB" name="correctOption" value="optionB">
+                <label for="optionB">Option B</label>
+            </div>
+            <div class="teach-form__radio">
+                <input type="radio" id="optionC" name="correctOption" value="optionC">
+                <label for="optionC">Option C</label>
+            </div>
+            <div class="teach-form__radio">
+                <input type="radio" id="optionD" name="correctOption" value="optionD">
+                <label for="optionD">Option D</label>
+            </div>
+        </div>
+        
+        <button class="btn btn__small">Create</button>
+        <div class="teach-form__container">
+            @foreach($errors->all() as $err)
+                <p class="error">{{ $err }}</p>
+            @endforeach
+        </div>
+    </form>
 
     @endsection
 </body>

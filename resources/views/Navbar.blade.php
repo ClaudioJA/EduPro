@@ -11,8 +11,11 @@
 <body>
         <header>
             <nav class="navbar">
-                <img class="logo" src="/images/edupro_logo.png" alt="">
-                <ul class="nav__list">
+                <div class="navbar__icon">
+                    <img data-hidden="true" class="hamburger" src="/images/hamburger.png" alt="">
+                    <img class="logo" src="/images/edupro_logo.png" alt="">
+                </div>
+                <ul class="nav__list" data-hidden="true">
                     <li><a href="/">Home</a></li>
                     <li class="nav__dropdown--bar">
                         <div class="nav__dropdown--link">

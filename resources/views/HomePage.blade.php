@@ -40,13 +40,13 @@
                     <img src="/images/live_teaching_session.png" alt="">
                     <h3>Live Teaching Session</h3>
                     <p>A remote training method that relies on live or prerecorded video to teach new skills and knowledge</p>
-                    <a href="" class="btn--details">More Details</a>
+                    <a href="/ltc" class="btn--details">More Details</a>
                 </div>
                 <div class="triple__content">
                     <img src="/images/private_tutor_exercises.png" alt="">
                     <h3>Private Tutor Exercises</h3>
                     <p>Distance training method by doing practice questions and quizzes to teach new skills and knowledge</p>
-                    <a href="" class="btn--details">More Details</a>
+                    <a href="/exercise" class="btn--details">More Details</a>
                 </div>
             </div>
         </div>

@@ -16,12 +16,11 @@
     --ff-zen-kaku : 'Zen Kaku Gothic Antique', sans-serif;
 
     /* Font Size */
-    --fs-50: 3.125rem;
-    --fs-28: 1.75rem;
+    --fs-50: clamp(2.375rem, calc(1rem + 3vw), 3.125rem);
+    --fs-28: clamp(1.313rem, 3vw, 1.75rem);
     --fs-21: 1.313rem;
     --fs-16: 1rem;
 
-    /* Font weight */
 }
 
 /* #region CSS RESET  */
@@ -66,6 +65,7 @@ body {
     font-size: var(--fs-16);    
     color: var(--clr-neutral-black);
     background-repeat: no-repeat;
+    min-height: 100svh;
 }
 
 .error{
@@ -132,7 +132,8 @@ body {
     font-size: var(--fs-16);
 }
 
-.logo{
+.logo, 
+.hamburger{
     max-width: 7rem;
     padding-inline: 1rem;
 }
@@ -193,4 +194,49 @@ body {
 
 .nav__dropdown[data-hidden="true"]{
     display: none;
+}
+.hamburger[data-hidden="true"]{
+    display: none;
+}
+
+@media(max-width: 1000px){
+    .hamburger[data-hidden="true"]{
+        display: block;
+    }
+    .navbar{
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .nav__list{
+        background-color: var(--clr-neutral-white);
+        width: max(40%, 200px);
+        top: 100%;
+        position: absolute;
+        flex-direction: column;
+        transition: transform 500ms ease;
+    }
+    .nav__list[data-hidden="true"]{
+        transform: translateX(-100%);
+    }
+    .navbar__icon{
+        display: flex;
+        align-items: center;
+        padding-inline: 1rem;
+    }
+    .navbar__icon > .hamburger,
+    .navbar__icon > .logo{
+        padding: 0;
+        max-width: 5rem;
+    }
+    .nav__dropdown{
+        position: static;
+    }
+
+    .nav__profile > *{
+        font-size: var(--fs-16);
+    }
+    .nav__profile--img{
+        max-width: 3rem;
+    }   
 }

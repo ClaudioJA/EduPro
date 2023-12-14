@@ -56,7 +56,7 @@
                                 if (auth()->check()){
                                     if (auth()->user()->userRole == "Admin") {
                             ?>
-                                <a href="/exercise/delete/{{ $e->id }}">Delete Course</a>
+                                <a href="/exercise/delete/{{ $e->id }}" class="btn btn__small">Delete Course</a>
                             <?php
                                     }
                                 }
