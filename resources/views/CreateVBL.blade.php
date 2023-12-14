@@ -25,6 +25,10 @@
 
                 <button>Create</button>
             </form>
+
+            @foreach($errors->all() as $err)
+                {{ $err }} <br>
+            @endforeach
         </div>
         <br><br>
         

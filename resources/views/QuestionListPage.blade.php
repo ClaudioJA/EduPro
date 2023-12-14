@@ -42,6 +42,16 @@
 
     </form>
 
+    <?php
+            if (auth()->check()){
+                if (auth()->user()->userRole == "Admin") {
+        ?>
+            <br><a href="/exercise/question/create/{{ $exercise->id }}"><button>Add Question</button></a><br><br>
+        <?php
+                }
+            }
+        ?>
+
     @endsection
 </body>
 </html>

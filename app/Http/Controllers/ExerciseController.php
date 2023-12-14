@@ -75,6 +75,10 @@ class ExerciseController extends Controller
     }
 
     public function checkAnswer(Request $request){
+        if(count($request->all()) <= 2){
+            return redirect()->back();
+        }
+
         $answers = $request->except('_token');
         $questionId = $request->questionId;
         $question = Exercisequestion::where('exerciseId', $questionId)->get();  
@@ -84,9 +88,11 @@ class ExerciseController extends Controller
 
         for($i = 0; $i < count($question); $i++){
             $correctAnswer = $question[$i]->correctOption;
-            
-            if ($answers[$i+1] !== null && $answers[$i+1] === $correctAnswer) {
-                $correct++;
+
+            if ($answers[$i+1] !== null) {
+                if($answers[$i+1] === $correctAnswer){
+                    $correct++;
+                }
             }
         }
 

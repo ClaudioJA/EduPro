@@ -28,8 +28,18 @@
             <button type="button" onclick="filterExercises()">Filter</button>
         </form>
 
+        <?php
+            if (auth()->check()){
+                if (auth()->user()->userRole == "Admin") {
+        ?>
+            <br><a href="/exercise/create"><button>Create Course</button></a><br><br>
+        <?php
+                }
+            }
+        ?>
+
         @forelse ($exercise as $e)
-            {{ $e->subject }}<br>
+            {{ $e->subject }} - {{ $e->title }}<br>
             <a href="/exercise/question/{{ $e->id }}"><button>Try</button></a>
             <br><br>
         @empty  
