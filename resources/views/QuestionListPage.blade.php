@@ -29,7 +29,7 @@
                 <div class="teach-form__answer">
                     <label for="name">Correct Answer : </label>
                     <div class="teach-form__radio">
-                        <input type="radio" name="{{ $loop->iteration }}" id="optionA" value="optionA">
+                        <input type="radio" name="{{ $loop->iteration }}" id="optionA" value="optionA" checked>
                         <label for="optionA">{{ $q->optionA }}</label>
                     </div>
                     <div class="teach-form__radio">
