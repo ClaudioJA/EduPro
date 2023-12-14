@@ -78,6 +78,7 @@ class ExerciseController extends Controller
         if(count($request->all()) <= 2){
             return redirect()->back();
         }
+       
 
         $answers = $request->except('_token');
         $questionId = $request->questionId;
@@ -85,6 +86,10 @@ class ExerciseController extends Controller
         
         $total = count($question);
         $correct = 0;
+
+        if(count($request->all()) != count($question)){
+            return redirect()->back();
+        }
 
         for($i = 0; $i < count($question); $i++){
             $correctAnswer = $question[$i]->correctOption;
