@@ -57,7 +57,7 @@
                 </div>
 
                 <div class="form__wrapper">
-                    <label for="name">Question : </label><br>
+                    <label for="name">Question : </label>
                     <textarea type="text" name="question" id="question"></textarea>
                 </div>
 

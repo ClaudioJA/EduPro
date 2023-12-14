@@ -52,9 +52,9 @@
 
                     </div>
                 @empty
-                    <p>There are no VBL at the moments</p>
-                @endforelse
             </div>
+                <p class="card--empty">There are no VBL at the moments</p>
+            @endforelse
         </div>
     </section>
     @endsection

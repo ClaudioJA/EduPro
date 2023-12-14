@@ -15,39 +15,38 @@
 <body>
     @extends('Navbar')
     @section('content')
+    <form class="teach-form" action="{{ route('create-chapter') }}" method="POST">
         <h1>Create VBL Chapter</h1>
+        <input type="hidden" name="_token" value='{{ csrf_token() }}'>
+        <input type="hidden" name="headerId" value='{{ $headerId }}'>
 
-        <div id="createForm" class="createForm">
-            <form action="{{ route('create-chapter') }}" method="POST">
-                <input type="hidden" name="_token" value='{{ csrf_token() }}'>
+        <div class="teach-form__wrapper">
+            <label for="name">Chapter Title : </label><br>
+            <textarea type="text" name="title" id="title"></textarea>
+        </div>
 
-                <input type="hidden" name="headerId" value='{{ $headerId }}'>
+        <div class="teach-form__wrapper">
+            <label for="name">Chapter Number : </label><br>
+            <textarea type="number" name="chapter" id="chapter"></textarea>
+        </div>
 
-                <label for="name">Chapter Title : </label><br>
-                <textarea type="text" name="title" id="title"></textarea>
-                <br><br>
+        <div class="teach-form__wrapper">
+            <label for="name">Video Url : </label><br>
+            <textarea type="text" name="videoUrl" id="videoUrl"></textarea>
+        </div>
 
-                <label for="name">Chapter Number : </label><br>
-                <textarea type="number" name="chapter" id="chapter"></textarea>
-                <br><br>
+        <div class="teach-form__wrapper">
+            <label for="name">Desc : </label><br>
+            <textarea type="text" name="desc" id="desc"></textarea>
+        </div>
 
-                <label for="name">Video Url : </label><br>
-                <textarea type="text" name="videoUrl" id="videoUrl"></textarea>
-                <br><br>
-
-                <label for="name">Desc : </label><br>
-                <textarea type="text" name="desc" id="desc"></textarea>
-                <br><br>
-
-                <button>Create</button>
-            </form>
-
+        <button class="btn btn__small">Create</button>
+        <div class="teach-form__container">
             @foreach($errors->all() as $err)
-                {{ $err }} <br>
+                <p class="error">{{ $err }}</p>
             @endforeach
         </div>
-        <br><br>
-        
+    </form>
     @endsection
 </body>
 </html>

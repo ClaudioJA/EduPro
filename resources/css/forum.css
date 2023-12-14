@@ -57,6 +57,8 @@
 .form__wrapper > textarea{
     margin-block: 1rem;
     border: none;
+    display: block;
+    width: 100%;
 }
 
 .question,
