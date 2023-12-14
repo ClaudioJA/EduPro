@@ -18,7 +18,7 @@
     <section class="teach-container">
         <div class="teach__cta">
             <h1>Video Based Learning</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, nemo?</p>
+            <p>Let’s  start with a free class!</p>
             <img src="/images/teach_img.png" alt="">
         </div>
         <?php
