@@ -5,32 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>VBL</title>
+
+    @vite(['resources/css/style.css',"resources/css/learning.css", "resources/js/animation.js"])
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&family=Zen+Kaku+Gothic+Antique:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
 </head>
 <body>
     @extends('Navbar')
     @section('content')
         <h1>Create VBL</h1>
 
-        <div id="createForm" class="createForm">
-            <form action="{{ route('create-course') }}" method="POST">
+        
+            <form action="{{ route('create-course') }}" class="teach-form" method="POST">
                 <input type="hidden" name="_token" value='{{ csrf_token() }}'>
 
-                <label for="name">Title : </label><br>
-                <textarea type="text" name="title" id="title"></textarea>
-                <br><br>
+                <div class="teach-form__wrapper">
+                    <label for="name">Title : </label><br>
+                    <textarea type="text" name="title" id="title"></textarea>
+                </div>
 
-                <label for="name">Instructor Name : </label><br>
-                <textarea type="text" name="instructor" id="instructor"></textarea>
-                <br><br>
+                <div class="teach-form__wrapper">
+                    <label for="name">Instructor Name : </label><br>
+                    <textarea type="text" name="instructor" id="instructor"></textarea>
+                </div>
+                
+                <button class="btn btn__small">Create</button>
 
-                <button>Create</button>
+                <div class="teach-form__container">
+                    @foreach($errors->all() as $err)
+                        <p class="error">{{ $err }}</p>
+                    @endforeach
+                </div>
             </form>
 
-            @foreach($errors->all() as $err)
-                {{ $err }} <br>
-            @endforeach
-        </div>
-        <br><br>
         
     @endsection
 </body>
